@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using Vuforia;
@@ -73,6 +73,8 @@ public class IoT : MonoBehaviour, ITrackableEventHandler {
 	bool firstAU = true;
 	bool firstBU = true;
 
+	public float WaterSensorValue;
+
 	int index;
 	public GameObject[] Buttons =new GameObject[6];
 
@@ -98,6 +100,8 @@ public class IoT : MonoBehaviour, ITrackableEventHandler {
 
 				timeText.text = System.DateTime.Now.ToString ();
 				microTemperatureText.text = microTemperatureVal.ToString ();
+				WaterSensorValue = microTemperatureVal;
+					Debug.Log ("Data of waterlevel sensor: " + (WaterSensorValue/100));
 				checkTemperature ();
 				microHumidityText.text = microHumidityVal.ToString ();
 				checkHumidity ();
